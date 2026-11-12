@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Inter-Tech notes portal for Class 9 and Class 10" />
+  <title>Inter-Tech Notes Portal</title>
+  <style>
+    :root {
+      --bg: #f3f6f5;
+      --surface: #ffffff;
+      --text: #13342a;
+      --muted: #4f6b62;
+      --brand: #0b3d2e;
+      --brand-2: #145c47;
+      --accent: #dceee8;
+      --ring: #7ab3a0;
+      --shadow: 0 10px 28px rgba(13, 49, 39, 0.14);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Poppins", sans-serif;
+      background: radial-gradient(circle at 10% 10%, #f6fbf9 0%, var(--bg) 60%);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .hero {
+      text-align: center;
+      color: #fff;
+      padding: 96px 20px;
+      background-image:
+        linear-gradient(rgba(11, 61, 46, 0.78), rgba(11, 61, 46, 0.78)),
+        url("https://drive.google.com/uc?export=view&id=15mZkUFqmBCQgefZRbNzr2px5rNcJA-8s");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: 0.6px;
+    }
+
+    .hero p {
+      margin: 12px auto 0;
+      max-width: 640px;
+      color: #def2ea;
+    }
+
+    .wrap {
+      max-width: 1040px;
+      margin: -34px auto 0;
+      padding: 0 16px 36px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 18px;
+      animation: rise 320ms ease;
+    }
+
+    .head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .head h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: var(--brand);
+    }
+
+    .search {
+      width: min(100%, 320px);
+      padding: 10px 12px;
+      border: 1px solid #cee5dc;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--ring);
+      box-shadow: 0 0 0 3px #d9efe7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #ffffff, #fbfefd);
+      border: 1px solid #e4f1ec;
+      border-radius: 14px;
+      padding: 18px;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #c4dfd4;
+      box-shadow: 0 12px 26px rgba(9, 44, 35, 0.12);
+    }
+
+    .card .icon {
+      font-size: 1.65rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      min-height: 44px;
+    }
+
+    .card small {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #fff;
+      padding: 9px 14px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 140ms ease, filter 140ms ease;
+    }
+
+    .btn:hover {
+      filter: brightness(1.04);
+      transform: scale(1.02);
+    }
+
+    .btn.secondary {
+      background: #e9f5f0;
+      color: var(--brand);
+      border: 1px solid #cce5db;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px;
+      background: linear-gradient(135deg, #0b3d2e, #042117);
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 74px 18px;
+      }
+
+      .panel {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>Inter-Tech</h1>
+    <p>Choose your class, open notes quickly, and download study material in one place.</p>
+  </header>
+
+  <main class="wrap">
+    <section id="classes" class="panel" aria-label="Class selection">
+      <div class="head">
+        <h2>Select Your Class</h2>
+      </div>
+      <div class="grid" id="classGrid"></div>
+    </section>
+
+    <section id="subjects" class="panel hidden" aria-label="Subject list">
+      <div class="head">
+        <h2 id="subjectTitle">Subjects</h2>
+        <label class="sr-only" for="searchInput">Search subjects</label>
+        <input id="searchInput" class="search" type="search" placeholder="Search subject..." />
+      </div>
+
+      <div id="subjectGrid" class="grid"></div>
+      <p id="resultInfo" class="note" aria-live="polite"></p>
+      <div style="margin-top: 14px">
+        <button id="backBtn" class="btn secondary" type="button">Back to Classes</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Learn the Skills. Build Your Portfolio. Launch Your Career. | Grade IX, X | NAVTTC
+  </footer>
+
+  <script>
+    const DB = {
+      classes: [
+        { id: "inter1", name: "Inter-Tech Class 9", icon: "📘" },
+        { id: "inter2", name: "Inter-Tech Class 10", icon: "📗" }
+      ],
+      subjects: {
+        inter1: [
+          {
+            icon: "📘",
+            name: "Graphic Designing Book",
+            type: "Book",
+            file: "https://drive.google.com/file/d/1UIVhJ35f5ZX8J07SHqnKwmd0IHGTnJmF/preview"
+          },
+          {
+            icon: "🎨",
+            name: "Graphic Designing Questions Answer",
+            type: "Q&A",
+            file: "https://drive.google.com/file/d/1nJmnpYLsEyMrcGSY8xrnnX26Y1VXDfaq/preview"
+          },
+          {
+            icon: "🎬",
+            name: "Media Production Book",
+            type: "Book",
+            file: "https://drive.google.com/file/d/1QIiy8ijiAVBCB3nB7hdFN_D90CyR32rj/preview"
+          },
+          {
+            icon: "📹",
+            name: "Media Production Question Answer",
+            type: "Q&A",
+            file: "https://drive.google.com/file/d/1Dt-lpla1sALr-BFae6z2qVh0RN_8nPPj/preview"
+          }
+        ],
+        inter2: [
+          {
+            icon: "📘",
+            name: "Graphic Designing Book",
+            type: "Book",
+            file: "https://drive.google.com/file/d/1nJmnpYLsEyMrcGSY8xrnnX26Y1VXDfaq/preview"
+          },
+          {
+            icon: "📝",
+            name: "Graphic Designing Notes",
+            type: "Notes",
+            file: "https://drive.google.com/file/d/1oq9k6nmHRCw-DpzmM5BOUe0k8tV9smzU/preview"
+          },
+          {
+            icon: "🎬",
+            name: "Media Production Book",
+            type: "Book",
+            file: "https://drive.google.com/file/d/1NPkWPA_udblA4Nx4voEO7CRQn3nTcs4i/preview"
+          },
+          {
+            icon: "📄",
+            name: "Media Production Notes",
+            type: "Notes",
+            file: "https://drive.google.com/file/d/15Q-leibODSLz42y6hXcYCCYmJnY-utSk/preview"
+          }
+        ]
+      }
+    };
+
+    const classesEl = document.getElementById("classes");
+    const subjectsEl = document.getElementById("subjects");
+    const classGrid = document.getElementById("classGrid");
+    const subjectGrid = document.getElementById("subjectGrid");
+    const searchInput = document.getElementById("searchInput");
+    const subjectTitle = document.getElementById("subjectTitle");
+    const resultInfo = document.getElementById("resultInfo");
+
+    let activeClass = null;
+
+    function getDownloadLink(url) {
+      if (!url.includes("drive.google.com")) return url;
+      const matched = url.match(/[-\w]{25,}/);
+      if (!matched) return url;
+      return `https://drive.google.com/uc?export=download&id=${matched[0]}`;
+    }
+
+    function renderClasses() {
+      classGrid.innerHTML = "";
+      DB.classes.forEach((cls) => {
+        const article = document.createElement("article");
+        article.className = "card";
+        article.innerHTML = `
+          <div class="icon">${cls.icon}</div>
+          <h3>${cls.name}</h3>
+          <small>Open subjects and resources</small>
+          <button class="btn" type="button" data-class="${cls.id}">Open</button>
+        `;
+        article.querySelector("button").addEventListener("click", () => openClass(cls.id));
+        classGrid.appendChild(article);
+      });
+    }
+
+    function renderSubjects(classId, query = "") {
+      const items = DB.subjects[classId] || [];
+      const q = query.trim().toLowerCase();
+      const filtered = items.filter((x) => x.name.toLowerCase().includes(q) || x.type.toLowerCase().includes(q));
+
+      subjectGrid.innerHTML = "";
+      filtered.forEach((subject) => {
+        const article = document.createElement("article");
+        article.className = "card";
+        article.innerHTML = `
+          <div class="icon">${subject.icon}</div>
+          <h3>${subject.name}</h3>
+          <small>${subject.type}</small>
+          <div class="actions">
+            <a href="${subject.file}" class="btn" target="_blank" rel="noopener noreferrer">View</a>
+            <a href="${getDownloadLink(subject.file)}" class="btn secondary" target="_blank" rel="noopener noreferrer">Download</a>
+          </div>
+        `;
+        subjectGrid.appendChild(article);
+      });
+
+      resultInfo.textContent = filtered.length
+        ? `${filtered.length} item(s) found`
+        : "No results found. Try a different keyword.";
+    }
+
+    function openClass(classId) {
+      activeClass = classId;
+      const classMeta = DB.classes.find((c) => c.id === classId);
+      subjectTitle.textContent = `${classMeta?.name || "Subjects"}`;
+      classesEl.classList.add("hidden");
+      subjectsEl.classList.remove("hidden");
+      searchInput.value = "";
+      renderSubjects(classId);
+    }
+
+    function goBack() {
+      activeClass = null;
+      subjectsEl.classList.add("hidden");
+      classesEl.classList.remove("hidden");
+    }
+
+    document.getElementById("backBtn").addEventListener("click", goBack);
+
+    searchInput.addEventListener("input", () => {
+      if (!activeClass) return;
+      renderSubjects(activeClass, searchInput.value);
+    });
+
+    renderClasses();
+  </script>
+</body>
+</html>
